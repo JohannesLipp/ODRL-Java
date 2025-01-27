@@ -12,4 +12,7 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 public class LogicalConstraint extends AbstractConstraint {
     @JsonldProperty("odrl:uid")
     private String uid;
+
+    @JsonldProperty("odrl:operand")
+    private Object operand;
 }

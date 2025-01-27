@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.github.JohannesLipp.odrljava.model.RightOperand;
+import com.github.JohannesLipp.odrljava.model.RightOperandWrapper;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Policy;
 import ioinformarics.oss.jackson.module.jsonld.JsonldModule;
+
+import java.net.URI;
 
 public class Test {
     public static void main(String[] args) throws JsonProcessingException {
@@ -15,10 +19,12 @@ public class Test {
         objectMapper.registerModule(new JsonldModule());
 
 
-//        Policy policy = new Policy();
-//        policy.setUid();
+//        RightOperandWrapper wrapper1 = new RightOperandWrapper(new RightOperand());
+//        RightOperandWrapper wrapper2 = new RightOperandWrapper("some literal value");
+//        RightOperandWrapper wrapper3 = new RightOperandWrapper(URI.create("http://example.com"));
 //
-//        String out = objectMapper.writeValueAsString(uid);
-//        System.out.println(out);
+//        System.out.println(objectMapper.writeValueAsString(wrapper1));
+//        System.out.println(objectMapper.writeValueAsString(wrapper2));
+//        System.out.println(objectMapper.writeValueAsString(wrapper3));
     }
 }
