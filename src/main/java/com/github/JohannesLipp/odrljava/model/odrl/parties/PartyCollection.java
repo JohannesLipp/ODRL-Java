@@ -1,7 +1,8 @@
-package com.github.JohannesLipp.odrljava.model;
+package com.github.JohannesLipp.odrljava.model.odrl.parties;
 
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
+import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
@@ -9,4 +10,6 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
 @JsonldType("odrl:PartyCollection")
 public class PartyCollection extends Party {
+    @JsonldProperty("odrl:source")
+    private PartyCollection source;
 }

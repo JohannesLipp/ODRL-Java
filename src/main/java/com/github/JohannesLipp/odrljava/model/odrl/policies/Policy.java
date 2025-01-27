@@ -1,12 +1,16 @@
-package com.github.JohannesLipp.odrljava.model;
+package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
+import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Party")
-public class Party {
+@JsonldType("odrl:Policy")
+public class Policy {
+    @JsonldProperty("odrl:uid")
+    private String uid;
+
 }
