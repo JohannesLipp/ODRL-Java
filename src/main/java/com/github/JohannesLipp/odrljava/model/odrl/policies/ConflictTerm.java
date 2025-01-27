@@ -1,4 +1,4 @@
-package com.github.JohannesLipp.odrljava.model;
+package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
@@ -7,6 +7,9 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Permission")
-public class Permission extends Rule {
+@JsonldType("odrl:ConflictTerm")
+public enum ConflictTerm {
+    perm,
+    prohibit,
+    invalid;
 }

@@ -1,11 +1,7 @@
-package com.github.JohannesLipp.odrljava.model.odrl.policies;
+package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
 import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.AbstractConstraint;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Action;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Duty;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
@@ -16,25 +12,16 @@ import java.util.Set;
 
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Policy")
-public class Policy {
+@JsonldType("odrl:Rule")
+public class Rule {
     @JsonldProperty("odrl:uid")
     private String uid;
 
-    @JsonldProperty("odrl:permission")
-    private Set<Permission> permission;
-
-    @JsonldProperty("odrl:prohibition")
-    private Set<Permission> prohibition;
-
-    @JsonldProperty("odrl:inheritFrom")
-    private Set<Permission> inheritFrom;
-
-    @JsonldProperty("odrl:profile")
-    private Set<Object> profile;
-
     @JsonldProperty("odrl:relation")
     private Set<Asset> relation;
+
+    @JsonldProperty("odrl:output")
+    private Set<Asset> output;
 
     @JsonldProperty("odrl:target")
     private Set<Asset> target;
@@ -48,6 +35,6 @@ public class Policy {
     @JsonldProperty("odrl:constraint")
     private Set<AbstractConstraint> constraint;
 
-    @JsonldProperty("odrl:obligation")
-    private Set<Duty> obligation;
+    @JsonldProperty("odrl:failure")
+    private Set<Rule> failure;
 }
