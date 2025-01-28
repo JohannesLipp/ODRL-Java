@@ -14,4 +14,7 @@ import java.util.Set;
 public class Permission extends Rule {
     @JsonldProperty("odrl:duty")
     private Set<Duty> duty;
+
+    public Permission() {
+    }
 }

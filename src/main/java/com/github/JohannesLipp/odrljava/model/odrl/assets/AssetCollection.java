@@ -18,4 +18,7 @@ public class AssetCollection extends Asset {
 
     @JsonldProperty("odrl:refinement")
     private Set<AbstractConstraint> refinement;
+
+    public AssetCollection() {
+    }
 }

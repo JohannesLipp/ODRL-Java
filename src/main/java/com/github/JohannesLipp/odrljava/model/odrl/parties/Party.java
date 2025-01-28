@@ -24,4 +24,7 @@ public class Party {
 
     @JsonldProperty("odrl:assignerOf")
     private Policy assignerOf;
+
+    public Party() {
+    }
 }

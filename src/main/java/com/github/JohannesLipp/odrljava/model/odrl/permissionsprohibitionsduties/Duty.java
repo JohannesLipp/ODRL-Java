@@ -14,4 +14,7 @@ import java.util.Set;
 public class Duty extends Rule {
     @JsonldProperty("odrl:consequence")
     private Set<Duty> consequence;
+
+    public Duty() {
+    }
 }

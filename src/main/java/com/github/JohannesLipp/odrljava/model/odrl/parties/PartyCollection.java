@@ -18,4 +18,9 @@ public class PartyCollection extends Party {
 
     @JsonldProperty("odrl:refinement")
     private Set<AbstractConstraint> refinement;
+
+    public PartyCollection() {
+    }
+
+
 }

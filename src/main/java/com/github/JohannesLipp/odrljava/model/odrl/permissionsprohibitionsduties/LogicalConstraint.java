@@ -29,4 +29,7 @@ public class LogicalConstraint extends AbstractConstraint {
 
     @JsonldProperty("odrl:xone")
     private List<Constraint> xone;
+
+    public LogicalConstraint() {
+    }
 }

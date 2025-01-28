@@ -21,4 +21,7 @@ public class Asset {
 
     @JsonldProperty("odrl:uid")
     private String uid;
+
+    public Asset() {
+    }
 }

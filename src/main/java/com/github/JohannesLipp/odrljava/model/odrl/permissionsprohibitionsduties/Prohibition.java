@@ -14,4 +14,7 @@ import java.util.Set;
 public class Prohibition extends Rule {
     @JsonldProperty("odrl:remedy")
     private Set<Duty> remedy;
+
+    public Prohibition() {
+    }
 }

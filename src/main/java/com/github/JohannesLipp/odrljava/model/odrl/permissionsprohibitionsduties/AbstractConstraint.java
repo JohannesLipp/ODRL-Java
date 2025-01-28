@@ -9,5 +9,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = LogicalConstraint.class, name = "LogicalConstraint")
 })
 public abstract class AbstractConstraint {
-
+    public AbstractConstraint() {
+    }
 }

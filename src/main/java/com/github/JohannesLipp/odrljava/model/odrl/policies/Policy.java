@@ -56,4 +56,7 @@ public class Policy {
 
     @JsonldProperty("odrl:assigner")
     private Party assigner;
+
+    public Policy() {
+    }
 }

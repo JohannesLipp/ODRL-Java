@@ -43,4 +43,7 @@ public class Rule {
 
     @JsonldProperty("odrl:assigner")
     private Party assigner;
+
+    public Rule() {
+    }
 }

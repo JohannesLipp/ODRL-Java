@@ -9,4 +9,6 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
 @JsonldType("odrl:Set")
 public class Set extends Policy {
+    public Set() {
+    }
 }
