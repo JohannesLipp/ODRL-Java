@@ -1,14 +1,25 @@
 package com.github.JohannesLipp.odrljava.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.net.URI;
 
+@JsonDeserialize(using = RightOperandWrapperDeserializer.class)
 public class RightOperandWrapper {
+    @JsonTypeInfo(
+            use = JsonTypeInfo.Id.NAME,
+            property = "@type"
+    )
+    @JsonSubTypes({
+            @JsonSubTypes.Type(value = TypedValue.class, name = "TypedValue"),
+            @JsonSubTypes.Type(value = RightOperandId.class, name = "RightOperandId")
+    })
     private Object value;
 
     public RightOperandWrapper(Object value) {
-        if (!(value instanceof RightOperand || value instanceof String || value instanceof URI)) {
+        if (!(value instanceof TypedValue || value instanceof RightOperandId)) {
             throw new IllegalArgumentException("Invalid type for RightOperandWrapper");
         }
         this.value = value;
@@ -20,7 +31,7 @@ public class RightOperandWrapper {
     }
 
     public void setValue(Object value) {
-        if (!(value instanceof RightOperand || value instanceof String || value instanceof URI)) {
+        if (!(value instanceof TypedValue || value instanceof RightOperandId)) {
             throw new IllegalArgumentException("Invalid type for RightOperandWrapper");
         }
         this.value = value;
