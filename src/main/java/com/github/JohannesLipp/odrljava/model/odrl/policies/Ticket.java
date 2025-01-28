@@ -1,6 +1,5 @@
-package com.github.JohannesLipp.odrljava.model;
+package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
-import com.github.JohannesLipp.odrljava.model.odrl.policies.Policy;
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
@@ -8,6 +7,6 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Assertion")
-public class Assertion extends Policy {
+@JsonldType("odrl:Ticket")
+public class Ticket extends Policy {
 }

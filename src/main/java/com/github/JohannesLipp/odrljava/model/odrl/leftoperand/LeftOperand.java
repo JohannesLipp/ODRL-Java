@@ -1,4 +1,4 @@
-package com.github.JohannesLipp.odrljava.model;
+package com.github.JohannesLipp.odrljava.model.odrl.leftoperand;
 
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;

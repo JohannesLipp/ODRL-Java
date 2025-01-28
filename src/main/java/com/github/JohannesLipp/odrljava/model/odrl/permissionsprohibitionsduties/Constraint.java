@@ -1,8 +1,8 @@
 package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
-import com.github.JohannesLipp.odrljava.model.LeftOperand;
-import com.github.JohannesLipp.odrljava.model.Operator;
-import com.github.JohannesLipp.odrljava.model.RightOperandWrapper;
+import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
+import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
+import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
 import com.github.JohannesLipp.odrljava.utils.Constants;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
 import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
@@ -28,7 +28,7 @@ public class Constraint extends AbstractConstraint {
     private Set<Operator> operator;
 
     @JsonldProperty("odrl:rightOperand")
-    private RightOperandWrapper rightOperand;
+    private RightOperand rightOperand;
 
     @JsonldProperty("odrl:leftOperand")
     private LeftOperand leftOperand;
@@ -38,4 +38,19 @@ public class Constraint extends AbstractConstraint {
 
     @JsonldProperty("odrl:status")
     private Object status;
+
+    public Constraint() {
+    }
+
+    public Constraint(String uid) {
+        this.uid = uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 }
