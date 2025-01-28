@@ -37,4 +37,10 @@ public class Rule {
 
     @JsonldProperty("odrl:failure")
     private Set<Rule> failure;
+
+    @JsonldProperty("odrl:assignee")
+    private Party assignee;
+
+    @JsonldProperty("odrl:assigner")
+    private Party assigner;
 }

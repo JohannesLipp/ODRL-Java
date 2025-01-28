@@ -5,5 +5,6 @@ In sync with [ODRL Information Model 2.2](https://www.w3.org/TR/2018/REC-odrl-mo
 
 ## Limitations
 - `odrl:uid` is assumed to be String
-- Not supporting `odrl:actions` marked as deprecated
+- Not supporting deprecated terms in general 
 - Only simple actions supported, thus not supporting constructs using `odrl:includedIn` / `odrl:implies` / `odrl:refinement`
+- Not supporting `odrl:function`. A full list: `attributedParty`, `attributingParty`, `consentingParty`, `consentedParty`, `informedParty`, `informingParty`, `payeeParty`, `compensatedParty`, `compensatingParty`, `trackingParty`, `trackedParty`, `contractingParty`, `contractedParty`

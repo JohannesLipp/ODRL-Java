@@ -50,4 +50,10 @@ public class Policy {
 
     @JsonldProperty("odrl:obligation")
     private Set<Duty> obligation;
+
+    @JsonldProperty("odrl:assignee")
+    private Party assignee;
+
+    @JsonldProperty("odrl:assigner")
+    private Party assigner;
 }
