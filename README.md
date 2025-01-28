@@ -5,3 +5,5 @@ In sync with [ODRL Information Model 2.2](https://www.w3.org/TR/2018/REC-odrl-mo
 
 ## Limitations
 - `odrl:uid` is assumed to be String
+- Not supporting `odrl:actions` marked as deprecated
+- Only simple actions supported, thus not supporting constructs using `odrl:includedIn` / `odrl:implies` / `odrl:refinement`
