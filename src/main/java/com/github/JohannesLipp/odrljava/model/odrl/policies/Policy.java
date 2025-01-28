@@ -1,5 +1,6 @@
 package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.AbstractConstraint;
@@ -17,6 +18,7 @@ import java.util.Set;
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
 @JsonldType("odrl:Policy")
+@JsonIgnoreProperties
 public class Policy {
     @JsonldProperty("odrl:uid")
     private String uid;
@@ -57,6 +59,5 @@ public class Policy {
     @JsonldProperty("odrl:assigner")
     private Party assigner;
 
-    public Policy() {
-    }
+
 }

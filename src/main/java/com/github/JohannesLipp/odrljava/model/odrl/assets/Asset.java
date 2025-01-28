@@ -24,4 +24,31 @@ public class Asset {
 
     public Asset() {
     }
+
+    public Set<AssetCollection> getPartOf() {
+        return partOf;
+    }
+
+    public Asset setPartOf(Set<AssetCollection> partOf) {
+        this.partOf = partOf;
+        return this;
+    }
+
+    public Set<Policy> getHasPolicy() {
+        return hasPolicy;
+    }
+
+    public Asset setHasPolicy(Set<Policy> hasPolicy) {
+        this.hasPolicy = hasPolicy;
+        return this;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public Asset setUid(String uid) {
+        this.uid = uid;
+        return this;
+    }
 }
