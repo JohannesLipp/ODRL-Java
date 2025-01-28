@@ -8,5 +8,17 @@ import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 @JsonldResource
 @JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
 @JsonldType("odrl:Operator")
-public class Operator {
+public enum Operator {
+    eq,
+    gt,
+    gteq,
+    hasPart,
+    isA,
+    isAllOf,
+    isAnyOf,
+    isNoneOf,
+    isPartOf,
+    lt,
+    lteq,
+    neq
 }
