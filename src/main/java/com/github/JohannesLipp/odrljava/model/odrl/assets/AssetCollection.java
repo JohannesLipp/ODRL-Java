@@ -1,22 +1,18 @@
 package com.github.JohannesLipp.odrljava.model.odrl.assets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.AbstractConstraint;
-import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
 import java.util.Set;
 
-@JsonldResource
-@JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:AssetCollection")
 public class AssetCollection extends Asset {
-    @JsonldProperty("odrl:source")
+    @JsonProperty("@type")
+    private final String type = "AssetCollection";
+
+    @JsonProperty("source")
     private AssetCollection source;
 
-    @JsonldProperty("odrl:refinement")
+    @JsonProperty("refinement")
     private Set<AbstractConstraint> refinement;
 
     public AssetCollection() {

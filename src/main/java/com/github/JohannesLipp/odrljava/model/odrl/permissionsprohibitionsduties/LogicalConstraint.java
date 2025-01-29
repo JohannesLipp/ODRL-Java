@@ -1,33 +1,29 @@
 package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
-import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-@JsonldResource
-@JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:LogicalConstraint")
 public class LogicalConstraint extends AbstractConstraint {
-    @JsonldProperty("odrl:uid")
+    @JsonProperty("@type")
+    private final String type = "LogicalConstraint";
+
+    @JsonProperty("uid")
     private String uid;
 
-    @JsonldProperty("odrl:operand")
+    @JsonProperty("operand")
     private List<Constraint> operand;
 
-    @JsonldProperty("odrl:andSequence")
+    @JsonProperty("andSequence")
     private List<Constraint> andSequence;
 
-    @JsonldProperty("odrl:or")
+    @JsonProperty("or")
     private List<Constraint> or;
 
-    @JsonldProperty("odrl:and")
+    @JsonProperty("and")
     private List<Constraint> and;
 
-    @JsonldProperty("odrl:xone")
+    @JsonProperty("xone")
     private List<Constraint> xone;
 
     public LogicalConstraint() {

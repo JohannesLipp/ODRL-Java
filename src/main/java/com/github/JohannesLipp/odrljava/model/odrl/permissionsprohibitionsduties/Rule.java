@@ -1,47 +1,44 @@
 package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
-import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
+import java.net.URI;
 import java.util.Set;
 
-@JsonldResource
-@JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Rule")
 public class Rule {
-    @JsonldProperty("odrl:uid")
+    @JsonProperty("@type")
+    private final String type = "Rule";
+
+    @JsonProperty("uid")
     private String uid;
 
-    @JsonldProperty("odrl:relation")
+    @JsonProperty("relation")
     private Set<Asset> relation;
 
-    @JsonldProperty("odrl:output")
+    @JsonProperty("output")
     private Set<Asset> output;
 
-    @JsonldProperty("odrl:target")
-    private Asset target;
+    @JsonProperty("target")
+    private URI target;
 
-    @JsonldProperty("odrl:function")
+    @JsonProperty("function")
     private Set<Party> function;
 
-    @JsonldProperty("odrl:action")
+    @JsonProperty("action")
     private Action action;
 
-    @JsonldProperty("odrl:constraint")
+    @JsonProperty("constraint")
     private Set<AbstractConstraint> constraint;
 
-    @JsonldProperty("odrl:failure")
+    @JsonProperty("failure")
     private Set<Rule> failure;
 
-    @JsonldProperty("odrl:assignee")
+    @JsonProperty("assignee")
     private Party assignee;
 
-    @JsonldProperty("odrl:assigner")
+    @JsonProperty("assigner")
     private Party assigner;
 
     public Rule() {
@@ -74,11 +71,11 @@ public class Rule {
         return this;
     }
 
-    public Asset getTarget() {
+    public URI getTarget() {
         return target;
     }
 
-    public Rule setTarget(Asset target) {
+    public Rule setTarget(URI target) {
         this.target = target;
         return this;
     }

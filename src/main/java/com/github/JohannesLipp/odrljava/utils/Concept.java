@@ -1,11 +1,8 @@
 package com.github.JohannesLipp.odrljava.utils;
 
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonldResource
-@JsonldNamespace(name = "skos", uri = Constants.SKOS_URI)
-@JsonldType("skos:Concept")
 public class Concept {
+    @JsonProperty("@type")
+    private static final String type = Constants.SKOS_URI + "Concept";
 }

@@ -1,42 +1,38 @@
 package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
-import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
 import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
-import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
+import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
 
 import java.util.Set;
 
-@JsonldResource
-@JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Constraint")
 public class Constraint extends AbstractConstraint {
-    @JsonldProperty("odrl:uid")
+    @JsonProperty("@type")
+    private final String type = "Constraint";
+
+    @JsonProperty("uid")
     private String uid;
 
-    @JsonldProperty("odrl:unit")
+    @JsonProperty("unit")
     private Object unit;
 
-    @JsonldProperty("odrl:dataType")
+    @JsonProperty("dataType")
     private Object dataType;
 
-    @JsonldProperty("odrl:operator")
+    @JsonProperty("operator")
     private Set<Operator> operator;
 
-    @JsonldProperty("odrl:rightOperand")
+    @JsonProperty("rightOperand")
     private RightOperand rightOperand;
 
-    @JsonldProperty("odrl:leftOperand")
+    @JsonProperty("leftOperand")
     private LeftOperand leftOperand;
 
-    @JsonldProperty("odrl:rightOperandReference")
+    @JsonProperty("rightOperandReference")
     private Object rightOperandReference;
 
-    @JsonldProperty("odrl:status")
+    @JsonProperty("status")
     private Object status;
 
     public Constraint() {

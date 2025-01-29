@@ -1,12 +1,9 @@
 package com.github.JohannesLipp.odrljava.model.cc;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
-@JsonldResource
-@JsonldNamespace(name = "cc", uri = Constants.CC_URI)
-@JsonldType("cc:Attribution")
 public class Attribution {
+    @JsonProperty("@type")
+    private static final String type = Constants.CC_URI + "Attribution";
 }

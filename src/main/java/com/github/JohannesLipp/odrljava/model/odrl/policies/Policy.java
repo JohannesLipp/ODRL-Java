@@ -1,63 +1,69 @@
 package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.JohannesLipp.odrljava.model.odrl.OdrlClass;
 import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.AbstractConstraint;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Action;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Duty;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
-import com.github.JohannesLipp.odrljava.utils.Constants;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldNamespace;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldResource;
-import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 
+import java.util.List;
 import java.util.Set;
 
-@JsonldResource
-@JsonldNamespace(name = "odrl", uri = Constants.ODRL_URI)
-@JsonldType("odrl:Policy")
-@JsonIgnoreProperties
-public class Policy {
-    @JsonldProperty("odrl:uid")
+public class Policy extends OdrlClass {
+    @JsonProperty("@type")
+    private final String type = "Policy";
+
+    @JsonProperty("uid")
     private String uid;
 
-    @JsonldProperty("odrl:permission")
-    private Set<Permission> permission;
+    @JsonProperty("permission")
+    private List<Permission> permission;
 
-    @JsonldProperty("odrl:prohibition")
+    @JsonProperty("prohibition")
     private Set<Permission> prohibition;
 
-    @JsonldProperty("odrl:inheritFrom")
+    @JsonProperty("inheritFrom")
     private Set<Permission> inheritFrom;
 
-    @JsonldProperty("odrl:profile")
+    @JsonProperty("profile")
     private Set<Object> profile;
 
-    @JsonldProperty("odrl:relation")
+    @JsonProperty("relation")
     private Set<Asset> relation;
 
-    @JsonldProperty("odrl:target")
+    @JsonProperty("target")
     private Set<Asset> target;
 
-    @JsonldProperty("odrl:function")
+    @JsonProperty("function")
     private Set<Party> function;
 
-    @JsonldProperty("odrl:action")
+    @JsonProperty("action")
     private Set<Action> action;
 
-    @JsonldProperty("odrl:constraint")
+    @JsonProperty("constraint")
     private Set<AbstractConstraint> constraint;
 
-    @JsonldProperty("odrl:obligation")
+    @JsonProperty("obligation")
     private Set<Duty> obligation;
 
-    @JsonldProperty("odrl:assignee")
+    @JsonProperty("assignee")
     private Party assignee;
 
-    @JsonldProperty("odrl:assigner")
+    @JsonProperty("assigner")
     private Party assigner;
 
+    public Policy() {
+    }
 
+    public List<Permission> getPermission() {
+        return permission;
+    }
+
+    public Policy setPermission(List<Permission> permission) {
+        this.permission = permission;
+        return this;
+    }
 }
