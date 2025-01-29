@@ -9,6 +9,7 @@ import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Duty;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private Set<Permission> inheritFrom;
 
     @JsonProperty("profile")
-    private Set<Object> profile;
+    private URI profile;
 
     @JsonProperty("relation")
     private Set<Asset> relation;
@@ -99,11 +100,11 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public Set<Object> getProfile() {
+    public URI getProfile() {
         return profile;
     }
 
-    public T setProfile(Set<Object> profile) {
+    public T setProfile(URI profile) {
         this.profile = profile;
         return (T) this;
     }

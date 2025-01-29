@@ -37,10 +37,10 @@ public class Rule<T extends Rule<T>> {
     private Set<Rule> failure;
 
     @JsonProperty("assignee")
-    private Party assignee;
+    private URI assignee;
 
     @JsonProperty("assigner")
-    private Party assigner;
+    private URI assigner;
 
     public Rule() {
     }
@@ -129,22 +129,20 @@ public class Rule<T extends Rule<T>> {
         return (T) this;
     }
 
-    public Party getAssignee() {
+    public URI getAssignee() {
         return assignee;
     }
 
-    @SuppressWarnings("unchecked")
-    public T setAssignee(Party assignee) {
+    public T setAssignee(URI assignee) {
         this.assignee = assignee;
         return (T) this;
     }
 
-    public Party getAssigner() {
+    public URI getAssigner() {
         return assigner;
     }
 
-    @SuppressWarnings("unchecked")
-    public T setAssigner(Party assigner) {
+    public T setAssigner(URI assigner) {
         this.assigner = assigner;
         return (T) this;
     }
