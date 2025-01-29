@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Action;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
+import com.github.JohannesLipp.odrljava.model.odrl.policies.Agreement;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Offer;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Set;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,7 +14,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Collections;
 
@@ -35,7 +35,7 @@ public class DeSerializationTests {
     }
 
     @Test
-    public void example01() throws IOException, URISyntaxException {
+    public void example01() throws IOException {
         URL jsonld = getResource("example01.jsonld");
         Set actual = mapper.readValue(jsonld, Set.class);
 
@@ -52,7 +52,7 @@ public class DeSerializationTests {
     }
 
     @Test
-    public void example02() throws IOException, URISyntaxException {
+    public void example02() throws IOException {
         URL jsonld = getResource("example02.jsonld");
         Offer actual = mapper.readValue(jsonld, Offer.class);
 
@@ -64,6 +64,80 @@ public class DeSerializationTests {
         Offer expected = new Offer()
                 .setUid("http://example.com/policy:1011")
                 .setProfile(URI.create("http://example.com/odrl:profile:01"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example03() throws IOException {
+        URL jsonld = getResource("example03.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/asset:9898.movie"))
+                .setAssigner(URI.create("http://example.com/party:org:abc"))
+                .setAssignee(URI.create("http://example.com/party:person:billie"))
+                .setAction(Action.play);
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:1012")
+                .setProfile(URI.create("http://example.com/odrl:profile:01"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example04() throws IOException {
+        URL jsonld = getResource("example04.jsonld");
+        Offer actual = mapper.readValue(jsonld, Offer.class);
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/asset:3333"))
+                .setAction(Action.display)
+                .setAssigner(URI.create("http://example.com/party:0001"));
+
+        Offer expected = new Offer()
+                .setUid("http://example.com/policy:3333")
+                .setProfile(URI.create("http://example.com/odrl:profile:02"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example05() {
+        throw new UnsupportedOperationException("Only URIs are supported (no complex objects) for the \"target\" property");
+    }
+
+    @Test
+    public void example06() {
+        throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
+    }
+
+    @Test
+    public void example07() {
+        throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
+    }
+
+    @Test
+    public void example08() throws IOException {
+        URL jsonld = getResource("example08.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/music/1999.mp3"))
+                .setAssigner(URI.create("http://example.com/org/sony-music"))
+                .setAssignee(URI.create("http://example.com/people/billie"))
+                .setAction(Action.play);
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:8888")
+                .setProfile(URI.create("http://example.com/odrl:profile:04"))
                 .setPermission(Collections.singletonList(permission));
 
         System.out.println(actual);
