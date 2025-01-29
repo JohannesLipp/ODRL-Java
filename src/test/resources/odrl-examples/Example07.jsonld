@@ -1,0 +1,11 @@
+{
+   "@type": "dc:MovingImage",
+   "@id": "http://example.com/asset:9999.movie",
+   "dc:publisher": "ABC Pictures",
+   "dc:creator": "Allen, Woody",
+   "dc:issued": "2017",
+   "dc:subject": "Musical Comedy",
+   ...
+   "odrl:hasPolicy": "http://example.com/policy:1010",
+   ...
+}

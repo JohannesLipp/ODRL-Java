@@ -1,0 +1,9 @@
+{
+   "@type": "vcard:Individual",
+   "@id": "http://example.com/person/billie",
+   "vcard:fn": "Billie",
+   "vcard:hasEmail": "billie@example.com",
+   ...
+   "odrl:assigneeOf": "http://example.com/policy:1011",
+   ...
+}

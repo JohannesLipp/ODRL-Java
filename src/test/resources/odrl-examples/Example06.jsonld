@@ -1,0 +1,8 @@
+{
+   "@type": "dc:Document",
+   "@id": "http://example.com/asset:111.doc",
+   "dc:title": "Annual Report",
+   ...
+   "odrl:partOf": "http://example.com/archive1011",
+   ...
+}
