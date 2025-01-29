@@ -17,4 +17,27 @@ public class AssetCollection extends Asset {
 
     public AssetCollection() {
     }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    public AssetCollection getSource() {
+        return source;
+    }
+
+    public AssetCollection setSource(AssetCollection source) {
+        this.source = source;
+        return this;
+    }
+
+    public Set<AbstractConstraint> getRefinement() {
+        return refinement;
+    }
+
+    public AssetCollection setRefinement(Set<AbstractConstraint> refinement) {
+        this.refinement = refinement;
+        return this;
+    }
 }

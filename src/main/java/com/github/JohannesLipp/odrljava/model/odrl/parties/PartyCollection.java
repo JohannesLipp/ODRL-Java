@@ -18,5 +18,26 @@ public class PartyCollection extends Party {
     public PartyCollection() {
     }
 
+    @Override
+    public String getType() {
+        return type;
+    }
 
+    public PartyCollection getSource() {
+        return source;
+    }
+
+    public PartyCollection setSource(PartyCollection source) {
+        this.source = source;
+        return this;
+    }
+
+    public Set<AbstractConstraint> getRefinement() {
+        return refinement;
+    }
+
+    public PartyCollection setRefinement(Set<AbstractConstraint> refinement) {
+        this.refinement = refinement;
+        return this;
+    }
 }

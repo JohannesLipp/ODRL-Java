@@ -21,6 +21,10 @@ public class Asset {
     public Asset() {
     }
 
+    public String getType() {
+        return type;
+    }
+
     public Set<AssetCollection> getPartOf() {
         return partOf;
     }

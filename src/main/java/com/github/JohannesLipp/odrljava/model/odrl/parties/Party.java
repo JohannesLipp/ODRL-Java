@@ -23,4 +23,44 @@ public class Party {
 
     public Party() {
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public Set<PartyCollection> getPartOf() {
+        return partOf;
+    }
+
+    public Party setPartOf(Set<PartyCollection> partOf) {
+        this.partOf = partOf;
+        return this;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public Party setUid(String uid) {
+        this.uid = uid;
+        return this;
+    }
+
+    public Policy getAssigneeOf() {
+        return assigneeOf;
+    }
+
+    public Party setAssigneeOf(Policy assigneeOf) {
+        this.assigneeOf = assigneeOf;
+        return this;
+    }
+
+    public Policy getAssignerOf() {
+        return assignerOf;
+    }
+
+    public Party setAssignerOf(Policy assignerOf) {
+        this.assignerOf = assignerOf;
+        return this;
+    }
 }
