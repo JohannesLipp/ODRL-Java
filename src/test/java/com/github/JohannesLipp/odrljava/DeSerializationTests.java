@@ -4,11 +4,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
+import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Action;
+import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Constraint;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Agreement;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Offer;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Set;
+import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -142,5 +146,68 @@ public class DeSerializationTests {
 
         System.out.println(actual);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example09() {
+        throw new UnsupportedOperationException("Only URIs are supported (no complex objects) for the \"assignee\" / \"assigner\" properties");
+    }
+
+    @Test
+    public void example10() {
+        throw new UnsupportedOperationException("References from external artifacts such as vCard are out of scope");
+    }
+
+    @Test
+    public void example11() {
+        throw new UnsupportedOperationException("References from external artifacts such as vCard are out of scope");
+    }
+
+    @Test
+    public void example12() throws IOException {
+        URL jsonld = getResource("example12.jsonld");
+        Offer actual = mapper.readValue(jsonld, Offer.class);
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/music:1012"))
+                .setAssigner(URI.create("http://example.com/org:abc"))
+                .setAction(Action.play);
+
+        Offer expected = new Offer()
+                .setUid("http://example.com/policy:1012")
+                .setProfile(URI.create("http://example.com/odrl:profile:06"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example13() throws IOException {
+        URL jsonld = getResource("example13.jsonld");
+        //Offer actual = mapper.readValue(jsonld, Offer.class);
+
+        Constraint constraint = new Constraint()
+                .setLeftOperand(LeftOperand.dateTime)
+                .setOperator(Operator.lt)
+                .setRightOperand(new RightOperand()
+                        .setValue("2018-01-01")
+                        .setType("xsd:date"));
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/document:1234"))
+                .setAssigner(URI.create("http://example.com/org:616"))
+                .setAction(Action.distribute)
+                .setConstraint(Collections.singletonList(constraint));
+
+        Offer expected = new Offer()
+                .setUid("http://example.com/policy:6163")
+                .setProfile(URI.create("http://example.com/odrl:profile:10"))
+                .setPermission(Collections.singletonList(permission));
+
+
+        System.out.println(mapper.writeValueAsString(expected));
+//        System.out.println(actual);
+//        assertEquals(expected, actual);
     }
 }

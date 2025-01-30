@@ -43,7 +43,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private Set<Party> function;
 
     @JsonProperty("action")
-    private Set<Action> action;
+    private Action action;
 
     @JsonProperty("constraint")
     private Set<AbstractConstraint> constraint;
@@ -136,11 +136,11 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public Set<Action> getAction() {
+    public Action getAction() {
         return action;
     }
 
-    public T setAction(Set<Action> action) {
+    public T setAction(Action action) {
         this.action = action;
         return (T) this;
     }
