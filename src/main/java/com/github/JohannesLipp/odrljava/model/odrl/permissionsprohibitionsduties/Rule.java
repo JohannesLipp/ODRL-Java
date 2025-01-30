@@ -5,6 +5,7 @@ import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class Rule<T extends Rule<T>> {
     private Action action;
 
     @JsonProperty("constraint")
-    private Set<AbstractConstraint> constraint;
+    private List<AbstractConstraint> constraint;
 
     @JsonProperty("failure")
     private Set<Rule> failure;
@@ -109,12 +110,12 @@ public class Rule<T extends Rule<T>> {
         return (T) this;
     }
 
-    public Set<AbstractConstraint> getConstraint() {
+    public List<AbstractConstraint> getConstraint() {
         return constraint;
     }
 
     @SuppressWarnings("unchecked")
-    public T setConstraint(Set<AbstractConstraint> constraint) {
+    public T setConstraint(List<AbstractConstraint> constraint) {
         this.constraint = constraint;
         return (T) this;
     }
