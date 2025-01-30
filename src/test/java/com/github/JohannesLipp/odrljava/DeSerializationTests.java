@@ -282,4 +282,47 @@ public class DeSerializationTests {
         System.out.println(actual);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void example20() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example21() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example22() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example23() throws IOException {
+        URL jsonld = getResource("example23.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Duty duty = new Duty()
+                .setAction(Action.attribute)
+                .setAttributedParty(URI.create("http://australia.gov.au/"))
+                .setConsequence(Collections.singletonList(new Duty()
+                        .setAction(Action.acceptTracking)
+                        .setTrackingParty(URI.create("http://example.com/dept:100"))));
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/data:77"))
+                .setAssigner(URI.create("http://example.com/org:99"))
+                .setAssignee(URI.create("http://example.com/person:88"))
+                .setAction(Action.distribute)
+                .setDuty(Collections.singletonList(duty));
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:66")
+                .setProfile(URI.create("http://example.com/odrl:profile:09"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
 }

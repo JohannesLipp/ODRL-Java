@@ -2,6 +2,7 @@ package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsdutie
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ public class Permission extends Rule<Permission> {
     private final String type = "Permission";
 
     @JsonProperty("duty")
-    private Set<Duty> duty;
+    private List<Duty> duty;
 
     public Permission() {
     }
@@ -19,11 +20,11 @@ public class Permission extends Rule<Permission> {
         return type;
     }
 
-    public Set<Duty> getDuty() {
+    public List<Duty> getDuty() {
         return duty;
     }
 
-    public Permission setDuty(Set<Duty> duty) {
+    public Permission setDuty(List<Duty> duty) {
         this.duty = duty;
         return this;
     }
