@@ -7,10 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
 import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.*;
-import com.github.JohannesLipp.odrljava.model.odrl.policies.Agreement;
-import com.github.JohannesLipp.odrljava.model.odrl.policies.ConflictTerm;
-import com.github.JohannesLipp.odrljava.model.odrl.policies.Offer;
-import com.github.JohannesLipp.odrljava.model.odrl.policies.Set;
+import com.github.JohannesLipp.odrljava.model.odrl.policies.*;
 import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -344,6 +341,23 @@ public class DeSerializationTests {
                 .setUid("http://example.com/policy:33CC")
                 .setProfile(URI.create("http://example.com/odrl:profile:09"))
                 .setProhibition(Collections.singletonList(prohibition));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example25() throws IOException {
+        URL jsonld = getResource("example25.jsonld");
+        Policy<?> actual = mapper.readValue(jsonld, Policy.class);
+
+        Policy<?> expected = new Policy<>()
+                .setUid("http://example.com/policy:7777")
+                .setProfile(URI.create("http://example.com/odrl:profile:20"))
+                .setPermission(Collections.singletonList(new Permission()
+                        .setTarget(URI.create("http://example.com/music/1999.mp3"))
+                        .setAssigner(URI.create("http://example.com/org/sony-music"))
+                        .setAction(Action.play)));
 
         System.out.println(actual);
         assertEquals(expected, actual);
