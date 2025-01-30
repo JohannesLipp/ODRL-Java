@@ -208,4 +208,51 @@ public class DeSerializationTests {
         System.out.println(mapper.writeValueAsString(actual));
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void example14() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example15() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example16() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example17() {
+        throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
+    }
+
+    @Test
+    public void example18() throws IOException {
+        URL jsonld = getResource("example18.jsonld");
+        Offer actual = mapper.readValue(jsonld, Offer.class);
+
+        Constraint constraint = new Constraint()
+                .setLeftOperand(LeftOperand.dateTime)
+                .setOperator(Operator.lteq)
+                .setRightOperand(new RightOperand()
+                        .setValue("2017-12-31")
+                        .setType("xsd:date"));
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/game:9090"))
+                .setAssigner(URI.create("http://example.com/org:xyz"))
+                .setAction(Action.play)
+                .setConstraint(Collections.singletonList(constraint));
+
+        Offer expected = new Offer()
+                .setUid("http://example.com/policy:9090")
+                .setProfile(URI.create("http://example.com/odrl:profile:07"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
 }
