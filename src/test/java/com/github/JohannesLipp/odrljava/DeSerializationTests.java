@@ -325,4 +325,27 @@ public class DeSerializationTests {
         System.out.println(actual);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void example24() throws IOException {
+        URL jsonld = getResource("example24.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Prohibition prohibition = new Prohibition()
+                .setTarget(URI.create("http://example.com/data:77"))
+                .setAssigner(URI.create("http://example.com/person:88"))
+                .setAssignee(URI.create("http://example.com/org:99"))
+                .setAction(Action.index)
+                .setRemedy(Collections.singletonList(new Duty()
+                        .setAction(Action.anonymize)
+                        .setTarget(URI.create("http://example.com/data:77"))));
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:33CC")
+                .setProfile(URI.create("http://example.com/odrl:profile:09"))
+                .setProhibition(Collections.singletonList(prohibition));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
 }
