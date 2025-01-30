@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
 
-public class Duty extends Rule {
+public class Duty extends Rule<Duty> {
     @JsonProperty("@type")
     private final String type = "Duty";
 

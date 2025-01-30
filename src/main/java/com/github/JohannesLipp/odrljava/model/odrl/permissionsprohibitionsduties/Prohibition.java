@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
 
-public class Prohibition extends Rule {
+public class Prohibition extends Rule<Prohibition> {
     @JsonProperty("@type")
     private final String type = "Prohibition";
 

@@ -6,10 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
 import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Action;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Constraint;
-import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.Permission;
+import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.*;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Agreement;
+import com.github.JohannesLipp.odrljava.model.odrl.policies.ConflictTerm;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Offer;
 import com.github.JohannesLipp.odrljava.model.odrl.policies.Set;
 import com.github.JohannesLipp.odrljava.model.odrl.rightoperand.RightOperand;
@@ -251,6 +250,34 @@ public class DeSerializationTests {
                 .setUid("http://example.com/policy:9090")
                 .setProfile(URI.create("http://example.com/odrl:profile:07"))
                 .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example19() throws IOException {
+        URL jsonld = getResource("example19.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Prohibition prohibition = new Prohibition()
+                .setTarget(URI.create("http://example.com/photoAlbum:55"))
+                .setAction(Action.archive)
+                .setAssigner(URI.create("http://example.com/MyPix:55"))
+                .setAssignee(URI.create("http://example.com/assignee:55"));
+
+        Permission permission = new Permission()
+                .setTarget(URI.create("http://example.com/photoAlbum:55"))
+                .setAction(Action.display)
+                .setAssigner(URI.create("http://example.com/MyPix:55"))
+                .setAssignee(URI.create("http://example.com/assignee:55"));
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:5555")
+                .setProfile(URI.create("http://example.com/odrl:profile:08"))
+                .setConflict(ConflictTerm.perm)
+                .setPermission(Collections.singletonList(permission))
+                .setProhibition(Collections.singletonList(prohibition));
 
         System.out.println(actual);
         assertEquals(expected, actual);
