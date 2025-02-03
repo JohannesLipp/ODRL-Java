@@ -10,6 +10,7 @@ import io.github.johanneslipp.odrljava.model.odrl.permissionsprohibitionsduties.
 import io.github.johanneslipp.odrljava.model.odrl.policies.*;
 import io.github.johanneslipp.odrljava.model.odrl.rightoperand.RightOperand;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -111,16 +112,19 @@ public class DeSerializationTests {
     }
 
     @Test
+    @Disabled("Only URIs are supported (no complex objects) for the \"target\" property")
     public void example05() {
         throw new UnsupportedOperationException("Only URIs are supported (no complex objects) for the \"target\" property");
     }
 
     @Test
+    @Disabled("References from external artifacts such as Dublin Core are out of scope")
     public void example06() {
         throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
     }
 
     @Test
+    @Disabled("References from external artifacts such as Dublin Core are out of scope")
     public void example07() {
         throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
     }
@@ -146,16 +150,19 @@ public class DeSerializationTests {
     }
 
     @Test
+    @Disabled("Only URIs are supported (no complex objects) for the \"assignee\" / \"assigner\" properties")
     public void example09() {
         throw new UnsupportedOperationException("Only URIs are supported (no complex objects) for the \"assignee\" / \"assigner\" properties");
     }
 
     @Test
+    @Disabled("References from external artifacts such as vCard are out of scope")
     public void example10() {
         throw new UnsupportedOperationException("References from external artifacts such as vCard are out of scope");
     }
 
     @Test
+    @Disabled("References from external artifacts such as vCard are out of scope")
     public void example11() {
         throw new UnsupportedOperationException("References from external artifacts such as vCard are out of scope");
     }
@@ -207,21 +214,25 @@ public class DeSerializationTests {
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example14() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example15() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example16() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example17() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
@@ -282,16 +293,19 @@ public class DeSerializationTests {
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example20() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example21() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
 
     @Test
+    @Disabled("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`")
     public void example22() {
         throw new UnsupportedOperationException("Only simple actions supported, thus not supporting constructs using `includedIn` / `implies` / `refinement`");
     }
@@ -469,6 +483,7 @@ public class DeSerializationTests {
     }
 
     @Test
+    @Disabled("References from external artifacts such as Dublin Core are out of scope")
     public void example30() {
         throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
     }
