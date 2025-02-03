@@ -3,7 +3,6 @@ package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsdutie
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -230,7 +229,7 @@ public class Rule<T extends Rule<T>> {
 
     public static class SingleOrArrayUriDeserializer extends JsonDeserializer<List<URI>> {
         @Override
-        public List<URI> deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+        public List<URI> deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
             if (jsonParser.isExpectedStartArrayToken()) {
                 return jsonParser.readValueAs(new TypeReference<List<URI>>() {
                 });
@@ -265,7 +264,7 @@ public class Rule<T extends Rule<T>> {
         }
 
         @Override
-        public List<Action> deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+        public List<Action> deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
             if (jsonParser.isExpectedStartArrayToken()) {
                 return jsonParser.readValueAs(new TypeReference<List<Action>>() {
                 });
