@@ -28,7 +28,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private List<Prohibition> prohibition;
 
     @JsonProperty("inheritFrom")
-    private List<Permission> inheritFrom;
+    private URI inheritFrom;
 
     @JsonProperty("profile")
     private URI profile;
@@ -54,7 +54,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private List<Duty> obligation;
 
     @JsonProperty("assignee")
-    private Party assignee;
+    private URI assignee;
 
     @JsonProperty("assigner")
     private URI assigner;
@@ -99,12 +99,12 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public List<Permission> getInheritFrom() {
+    public URI getInheritFrom() {
         return inheritFrom;
     }
 
     @SuppressWarnings("unchecked")
-    public T setInheritFrom(List<Permission> inheritFrom) {
+    public T setInheritFrom(URI inheritFrom) {
         this.inheritFrom = inheritFrom;
         return (T) this;
     }
@@ -186,12 +186,12 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public Party getAssignee() {
+    public URI getAssignee() {
         return assignee;
     }
 
     @SuppressWarnings("unchecked")
-    public T setAssignee(Party assignee) {
+    public T setAssignee(URI assignee) {
         this.assignee = assignee;
         return (T) this;
     }

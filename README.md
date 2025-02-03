@@ -10,5 +10,6 @@ In sync with [ODRL Information Model 2.2](https://www.w3.org/TR/2018/REC-odrl-mo
 - Not supporting `function`. A full list: `attributedParty`, `attributingParty`, `consentingParty`, `consentedParty`, `informedParty`, `informingParty`, `payeeParty`, `compensatedParty`, `compensatingParty`, `trackingParty`, `trackedParty`, `contractingParty`, `contractedParty`
 - `rightOperand` only supporting direct format, no `@id` references. Supported example: `{"@value": "online", "@type": "xsd:string"}`
 - For the following properties, only URIs are supported (no complex objects such as `AssetCollection`)
-  - `target`, `profile` properties of `Policy`
+  - `target`, `profile`, `assignee`, `assigner` properties of `Policy`
   - `assigner` and `assignee` properties of `Rule`
+  - `inheritFrom`  property of `Agreement`
