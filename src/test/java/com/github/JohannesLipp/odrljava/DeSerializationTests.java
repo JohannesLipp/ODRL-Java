@@ -511,4 +511,31 @@ public class DeSerializationTests {
         System.out.println(actual);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void example33() throws IOException {
+        URL jsonld = getResource("example33.jsonld");
+        Agreement actual = mapper.readValue(jsonld, Agreement.class);
+
+        Agreement expected = new Agreement()
+                .setUid("http://example.com/policy:4444")
+                .setProfile(URI.create("http://example.com/odrl:profile:30"))
+                .setInheritFrom(URI.create("http://example.com/policy:default"))
+                .setPermission(Collections.singletonList(
+                        new Permission()
+                                .setTarget(URI.create("http://example.com/asset:5555"))
+                                .setAction(Action.display)
+                                .setAssigner(URI.create("http://example.com/org-01"))
+                                .setAssignee(URI.create("http://example.com/user:0001"))))
+                .setObligation(Collections.singletonList(
+                        new Duty()
+                                .setTarget(URI.create("http://example.com/asset:terms-and-conditions"))
+                                .setAction(Action.reviewPolicy)
+                                .setAssigner(URI.create("http://example.com/org-01"))
+                                .setAssignee(URI.create("http://example.com/user:0001"))
+                ));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
 }
