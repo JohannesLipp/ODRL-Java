@@ -6,7 +6,7 @@ In sync with [ODRL Information Model 2.2](https://www.w3.org/TR/2018/REC-odrl-mo
 ## Usage
 ODRL instances (Policies, Agreements, etc.) can be instantiated as Java classes manually or via JSON-LD deserialization, and serialized to JSON-LD.  
 
-Use the recommended JSON-LD mapper from [Demo.java](src/main/java/com/github/JohannesLipp/odrljava/Demo.java) or set up a customized one:
+Use the recommended JSON-LD mapper from [Demo.java](src/main/java/io/github/johanneslipp/odrljava/Demo.java) or set up a customized one:
 ```java
 ObjectMapper mapper = new ObjectMapper();
 mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
@@ -15,7 +15,7 @@ mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 ```
 
 ### Serialize
-Create ODRL instances in Java and serialize to JSON-LD (see [Demo.java](src/main/java/com/github/JohannesLipp/odrljava/Demo.java)):
+Create ODRL instances in Java and serialize to JSON-LD (see [Demo.java](src/main/java/io/github/johanneslipp/odrljava/Demo.java)):
 
 ```java
 // Create ODRL-Java instance, e.g. via setter builder pattern
@@ -42,7 +42,7 @@ System.out.println(mapper.writeValueAsString(offer));
 ```
 
 ### Deserialize (based on Example 04)
-Deserialize JSON-LD to ODRL-Java instances and work with them (see [Demo.java](src/main/java/com/github/JohannesLipp/odrljava/Demo.java)):
+Deserialize JSON-LD to ODRL-Java instances and work with them (see [Demo.java](src/main/java/io/github/johanneslipp/odrljava/Demo.java)):
 
 ```java
 // Create JSON-LD content (can also be read from file, e.g. via `mapper.readValue(URI uri, Offer.class)`
@@ -69,7 +69,7 @@ System.out.println("Action: " + offer.getPermission().getFirst().getAction().get
 
 ## Tests
 All 35 examples from the above-mentioned ODRL specification are supported, excluding some explicit exceptions due to the following limitations.
-See [the extracted ODRL examples in test resources](src/test/resources) and the [JUnit deserialization tests in DeSerializationTests.java](src/test/java/com/github/JohannesLipp/odrljava/DeSerializationTests.java). 
+See [the extracted ODRL examples in test resources](src/test/resources) and the [JUnit deserialization tests in DeSerializationTests.java](src/test/java/io/github/johanneslipp/odrljava/DeSerializationTests.java). 
 
 ## Limitations
 - `uid` is assumed to be String
