@@ -208,7 +208,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Policy<?> policy = (Policy<?>) o;
-        return Objects.equals(uid, policy.uid) && Objects.equals(permission, policy.permission) && Objects.equals(prohibition, policy.prohibition) && Objects.equals(inheritFrom, policy.inheritFrom) && Objects.equals(profile, policy.profile) && Objects.equals(relation, policy.relation) && Objects.equals(target, policy.target) && Objects.equals(function, policy.function) && action == policy.action && Objects.equals(constraint, policy.constraint) && Objects.equals(obligation, policy.obligation) && Objects.equals(assignee, policy.assignee) && Objects.equals(assigner, policy.assigner) && conflict == policy.conflict;
+        return Objects.equals(uid, policy.uid) && Objects.equals(permission, policy.permission) && Objects.equals(prohibition, policy.prohibition) && Objects.equals(inheritFrom, policy.inheritFrom) && Objects.equals(profile, policy.profile) && Objects.equals(relation, policy.relation) && Objects.equals(target, policy.target) && Objects.equals(function, policy.function) && Objects.equals(action, policy.action) && Objects.equals(constraint, policy.constraint) && Objects.equals(obligation, policy.obligation) && Objects.equals(assignee, policy.assignee) && Objects.equals(assigner, policy.assigner) && Objects.equals(conflict, policy.conflict);
     }
 
     @Override
