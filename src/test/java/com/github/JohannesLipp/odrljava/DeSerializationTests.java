@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class DeSerializationTests {
@@ -533,6 +534,51 @@ public class DeSerializationTests {
                                 .setAction(Action.reviewPolicy)
                                 .setAssigner(URI.create("http://example.com/org-01"))
                                 .setAssignee(URI.create("http://example.com/user:0001"))
+                ));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example34() throws IOException {
+        URL jsonld = getResource("example34.jsonld");
+        Policy<?> actual = mapper.readValue(jsonld, Policy.class);
+
+        Policy<?> expected = new Policy<>()
+                .setUid("http://example.com/policy:0001")
+                .setProfile(URI.create("http://example.com/odrl:profile:40"))
+                .setConflict(ConflictTerm.perm)
+                .setPermission(Collections.singletonList(
+                        new Permission()
+                                .setTarget(URI.create("http://example.com/asset:1212"))
+                                .setAction(Action.use)
+                                .setAssigner(URI.create("http://example.com/owner:181"))
+                ));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example35() throws IOException {
+        URL jsonld = getResource("example35.jsonld");
+        Policy<?> actual = mapper.readValue(jsonld, Policy.class);
+
+        Policy<?> expected = new Policy<>()
+                .setUid("http://example.com/policy:0002")
+                .setProfile(URI.create("http://example.com/odrl:profile:40"))
+                .setConflict(ConflictTerm.perm)
+                .setPermission(Collections.singletonList(
+                        new Permission()
+                                .setTarget(URI.create("http://example.com/asset:1212"))
+                                .setAction(Action.display)
+                                .setAssigner(URI.create("http://example.com/owner:182"))
+                ))
+                .setProhibition(Collections.singletonList(
+                        new Prohibition()
+                                .setTarget(URI.create("http://example.com/asset:1212"))
+                                .setAction(Action.print)
                 ));
 
         System.out.println(actual);
