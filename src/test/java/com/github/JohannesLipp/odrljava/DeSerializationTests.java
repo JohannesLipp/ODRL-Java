@@ -468,5 +468,27 @@ public class DeSerializationTests {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void example30() throws IOException {
+        throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
+    }
 
+    @Test
+    public void example31() throws IOException {
+        URL jsonld = getResource("example31.jsonld");
+        Policy<?> actual = mapper.readValue(jsonld, Policy.class);
+
+        Policy<?> expected = new Policy<>()
+                .setUid("http://example.com/policy:default")
+                .setProfile(URI.create("http://example.com/odrl:profile:30"))
+                .setAssigner(URI.create("http://example.com/org-01"))
+                .setObligation(Collections.singletonList(
+                        new Duty()
+                                .setTarget(URI.create("http://example.com/asset:terms-and-conditions"))
+                                .setAction(Action.reviewPolicy)
+                ));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
 }
