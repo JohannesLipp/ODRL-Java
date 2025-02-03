@@ -13,7 +13,7 @@ public class Asset {
     private Set<AssetCollection> partOf;
 
     @JsonProperty("hasPolicy")
-    private Set<Policy> hasPolicy;
+    private Set<Policy<?>> hasPolicy;
 
     @JsonProperty("uid")
     private String uid;
@@ -34,11 +34,11 @@ public class Asset {
         return this;
     }
 
-    public Set<Policy> getHasPolicy() {
+    public Set<Policy<?>> getHasPolicy() {
         return hasPolicy;
     }
 
-    public Asset setHasPolicy(Set<Policy> hasPolicy) {
+    public Asset setHasPolicy(Set<Policy<?>> hasPolicy) {
         this.hasPolicy = hasPolicy;
         return this;
     }

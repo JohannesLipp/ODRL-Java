@@ -1,12 +1,16 @@
 package com.github.JohannesLipp.odrljava.model.odrl.policies;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.github.JohannesLipp.odrljava.model.odrl.OdrlClass;
 import com.github.JohannesLipp.odrljava.model.odrl.assets.Asset;
 import com.github.JohannesLipp.odrljava.model.odrl.parties.Party;
 import com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties.*;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,7 +37,9 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private List<Asset> relation;
 
     @JsonProperty("target")
-    private List<Asset> target;
+    @JsonSerialize(using = Rule.SingleOrArrayUriSerializer.class)
+    @JsonDeserialize(using = Rule.SingleOrArrayUriDeserializer.class)
+    private List<URI> target;
 
     @JsonProperty("function")
     private List<Party> function;
@@ -51,7 +57,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
     private Party assignee;
 
     @JsonProperty("assigner")
-    private Party assigner;
+    private URI assigner;
 
     @JsonProperty
     private ConflictTerm conflict;
@@ -123,13 +129,20 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public List<Asset> getTarget() {
+    public List<URI> getTarget() {
         return target;
     }
 
     @SuppressWarnings("unchecked")
-    public T setTarget(List<Asset> target) {
+    public T setTarget(List<URI> target) {
         this.target = target;
+        return (T) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public T setTarget(URI target) {
+        this.target = Collections.singletonList(target);
         return (T) this;
     }
 
@@ -183,12 +196,12 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return (T) this;
     }
 
-    public Party getAssigner() {
+    public URI getAssigner() {
         return assigner;
     }
 
     @SuppressWarnings("unchecked")
-    public T setAssigner(Party assigner) {
+    public T setAssigner(URI assigner) {
         this.assigner = assigner;
         return (T) this;
     }
