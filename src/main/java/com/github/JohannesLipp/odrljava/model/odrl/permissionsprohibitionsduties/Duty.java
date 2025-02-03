@@ -61,7 +61,7 @@ public class Duty extends Rule<Duty> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Duty duty = (Duty) o;
-        return Objects.equals(type, duty.type) && Objects.equals(consequence, duty.consequence) && Objects.equals(attributedParty, duty.attributedParty) && Objects.equals(trackingParty, duty.trackingParty);
+        return Objects.equals(consequence, duty.consequence) && Objects.equals(attributedParty, duty.attributedParty) && Objects.equals(trackingParty, duty.trackingParty);
     }
 
     @Override

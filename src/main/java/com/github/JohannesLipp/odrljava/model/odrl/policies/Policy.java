@@ -67,6 +67,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return uid;
     }
 
+    @SuppressWarnings("unchecked")
     public T setUid(String uid) {
         this.uid = uid;
         return (T) this;
@@ -76,6 +77,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return permission;
     }
 
+    @SuppressWarnings("unchecked")
     public T setPermission(List<Permission> permission) {
         this.permission = permission;
         return (T) this;
@@ -85,6 +87,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return prohibition;
     }
 
+    @SuppressWarnings("unchecked")
     public T setProhibition(List<Prohibition> prohibition) {
         this.prohibition = prohibition;
         return (T) this;
@@ -94,6 +97,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return inheritFrom;
     }
 
+    @SuppressWarnings("unchecked")
     public T setInheritFrom(List<Permission> inheritFrom) {
         this.inheritFrom = inheritFrom;
         return (T) this;
@@ -103,6 +107,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return profile;
     }
 
+    @SuppressWarnings("unchecked")
     public T setProfile(URI profile) {
         this.profile = profile;
         return (T) this;
@@ -112,6 +117,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return relation;
     }
 
+    @SuppressWarnings("unchecked")
     public T setRelation(List<Asset> relation) {
         this.relation = relation;
         return (T) this;
@@ -121,6 +127,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return target;
     }
 
+    @SuppressWarnings("unchecked")
     public T setTarget(List<Asset> target) {
         this.target = target;
         return (T) this;
@@ -130,6 +137,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return function;
     }
 
+    @SuppressWarnings("unchecked")
     public T setFunction(List<Party> function) {
         this.function = function;
         return (T) this;
@@ -139,6 +147,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return action;
     }
 
+    @SuppressWarnings("unchecked")
     public T setAction(Action action) {
         this.action = action;
         return (T) this;
@@ -148,6 +157,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return constraint;
     }
 
+    @SuppressWarnings("unchecked")
     public T setConstraint(List<AbstractConstraint> constraint) {
         this.constraint = constraint;
         return (T) this;
@@ -157,6 +167,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return obligation;
     }
 
+    @SuppressWarnings("unchecked")
     public T setObligation(List<Duty> obligation) {
         this.obligation = obligation;
         return (T) this;
@@ -166,6 +177,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return assignee;
     }
 
+    @SuppressWarnings("unchecked")
     public T setAssignee(Party assignee) {
         this.assignee = assignee;
         return (T) this;
@@ -175,6 +187,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return assigner;
     }
 
+    @SuppressWarnings("unchecked")
     public T setAssigner(Party assigner) {
         this.assigner = assigner;
         return (T) this;
@@ -184,6 +197,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         return conflict;
     }
 
+    @SuppressWarnings("unchecked")
     public T setConflict(ConflictTerm conflict) {
         this.conflict = conflict;
         return (T) this;
@@ -194,7 +208,7 @@ public class Policy<T extends Policy<T>> extends OdrlClass {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Policy<?> policy = (Policy<?>) o;
-        return Objects.equals(type, policy.type) && Objects.equals(uid, policy.uid) && Objects.equals(permission, policy.permission) && Objects.equals(prohibition, policy.prohibition) && Objects.equals(inheritFrom, policy.inheritFrom) && Objects.equals(profile, policy.profile) && Objects.equals(relation, policy.relation) && Objects.equals(target, policy.target) && Objects.equals(function, policy.function) && action == policy.action && Objects.equals(constraint, policy.constraint) && Objects.equals(obligation, policy.obligation) && Objects.equals(assignee, policy.assignee) && Objects.equals(assigner, policy.assigner) && Objects.equals(conflict, policy.conflict);
+        return Objects.equals(uid, policy.uid) && Objects.equals(permission, policy.permission) && Objects.equals(prohibition, policy.prohibition) && Objects.equals(inheritFrom, policy.inheritFrom) && Objects.equals(profile, policy.profile) && Objects.equals(relation, policy.relation) && Objects.equals(target, policy.target) && Objects.equals(function, policy.function) && action == policy.action && Objects.equals(constraint, policy.constraint) && Objects.equals(obligation, policy.obligation) && Objects.equals(assignee, policy.assignee) && Objects.equals(assigner, policy.assigner) && conflict == policy.conflict;
     }
 
     @Override

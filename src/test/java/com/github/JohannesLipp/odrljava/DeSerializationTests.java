@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -362,4 +363,31 @@ public class DeSerializationTests {
         System.out.println(actual);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void example26() throws IOException {
+        URL jsonld = getResource("example26.jsonld");
+        Policy<?> actual = mapper.readValue(jsonld, Policy.class);
+
+        Permission permission = new Permission()
+                .setTarget(List.of(
+                        URI.create("http://example.com/music/1999.mp3"),
+                        URI.create("http://example.com/music/PurpleRain.mp3")
+                ))
+                .setAssigner(URI.create("http://example.com/org/sony-music"))
+                .setAction(List.of(
+                        Action.play,
+                        Action.stream
+                ));
+
+        Policy<?> expected = new Policy<>()
+                .setUid("http://example.com/policy:8888")
+                .setProfile(URI.create("http://example.com/odrl:profile:20"))
+                .setPermission(Collections.singletonList(permission));
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+
 }

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Permission extends Rule<Permission> {
     @JsonProperty("@type")
@@ -35,7 +34,7 @@ public class Permission extends Rule<Permission> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Permission that = (Permission) o;
-        return Objects.equals(type, that.type) && Objects.equals(duty, that.duty);
+        return Objects.equals(duty, that.duty);
     }
 
     @Override

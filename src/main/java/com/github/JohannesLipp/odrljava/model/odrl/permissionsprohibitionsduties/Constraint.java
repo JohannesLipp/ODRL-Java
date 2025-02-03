@@ -1,7 +1,6 @@
 package com.github.JohannesLipp.odrljava.model.odrl.permissionsprohibitionsduties;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.JohannesLipp.odrljava.model.odrl.leftoperand.LeftOperand;
 import com.github.JohannesLipp.odrljava.model.odrl.operators.Operator;
