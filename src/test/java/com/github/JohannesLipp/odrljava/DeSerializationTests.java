@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class DeSerializationTests {
@@ -470,7 +469,7 @@ public class DeSerializationTests {
     }
 
     @Test
-    public void example30() throws IOException {
+    public void example30() {
         throw new UnsupportedOperationException("References from external artifacts such as Dublin Core are out of scope");
     }
 
